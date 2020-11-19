@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CSS Grid</title>
+    <style>
+      body {
+        margin: 0;
+        height: 100vh;
+        display: grid;
+        /* This defines a grid layout for body. We have defined 6 grid areas: a, b, c, d, e and f.
+            Each string represents a row and the named area (in this case - a, b etc) is a placeholder for grid item.
+            The row size (height) can be specified at the end after defining each row. If the size is not specified then the size default to 'auto' (content-based) sizing
+            The column size is defined after all the explicit rows are defined. Here in this case,
+            the first column is auto-sized (fit the contents) and second column takes the remaining space
+        */
+        grid:
+          "a b"
+          "c d" 50px
+          "e f" 30px
+          / auto 1fr;
+      }
+
+      body > div {
+        border: 2px solid rgb(233, 171, 88);
+        border-radius: 5px;
+        background-color: rgba(233, 171, 88, 0.5);
+        padding: 5px;
+        color: #d9480f;
+      }
+
+      #a {
+        grid-area: a;
+      }
+
+      #b {
+        grid-area: b;
+      }
+
+      #c {
+        grid-area: c;
+      }
+
+      #d {
+        grid-area: d;
+      }
+
+      #e {
+        grid-area: e;
+      }
+
+      #f {
+        grid-area: f;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="a">Area a</div>
+    <div id="b">Area b</div>
+    <div id="c">Area c</div>
+    <div id="d">Area d</div>
+    <div id="e">Area e</div>
+    <div id="f">Area f</div>
+  </body>
+</html>
