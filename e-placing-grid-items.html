@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CSS Grid</title>
+    <style>
+      body {
+        margin: 0;
+      }
+
+      .grid {
+        height: 100vh;
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        grid-template-rows: repeat(4, 1fr);
+      }
+
+      .grid > div {
+        border: 2px solid rgb(233, 171, 88);
+        border-radius: 5px;
+        background-color: rgb(233, 171, 88, 0.5);
+        padding: 5px;
+        color: #d9480f;
+      }
+
+      /*
+            The grid-area accepts values in different formats
+            1) As covered in d-define-grid-by-areas.html, it accepts an area name
+            2) grid-area:  grid-row. / grid-column - specify the row and column number
+            3) grid-area: grid-row-start / grid-column-start / grid-row-end / grid-column-end - here you can specify the grid line number for a row or column
+            This format is used to specify how long or wide a grid item should span from specified position
+      */
+      #one {
+        grid-area: 1 / 1;
+      }
+
+      #two {
+        grid-area: 2 / 2;
+      }
+
+      #three {
+        grid-area: 3 / 3;
+      }
+
+      #four {
+        grid-area: 4 / 4;
+      }
+
+      #five {
+        /* This grid item is placed  in row with line no.1, column with line no. 2
+            The item spans vertcally till row with line no. 4 and horizontally till column with line no. 3
+            In other words this item s placed in row 1 column 2 and spans 3 rows and 1 column
+         */
+        grid-area: 1 / 2 / 4 / 3;
+        border: 2px solid rgb(88, 103, 233);
+        background-color: rgb(88, 103, 233, 0.5);
+        color: #3345e9;
+      }
+
+      #six {
+        /* A negative value indicates the line counting is done from opposite side */
+        grid-area: 1 / 1 / -1 / -1;
+        /* or specify longhand properties */
+        /* grid-row: 1 / -1;
+          grid-column: 1 / -1; */
+        border: 2px solid rgb(158, 219, 117);
+        background-color: rgb(158, 219, 117, 0.5);
+        color: #157ce9;
+        z-index: -1;
+        text-align: right;
+      }
+
+      #seven {
+        grid-row-start: 4;
+        grid-row-end: 5;
+        /* A value of -2 indicates 2nd line but from bottom. It is same as 4th line from top */
+        /* grid-row-start: -2;
+          grid-row-end: -1; */
+        grid-column-start: 1;
+        grid-column-end: 4;
+        border: 2px solid rgb(158, 219, 117);
+        background-color: rgb(158, 219, 117, 0.5);
+        color: #157ce9;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="grid">
+      <div id="one">One</div>
+      <div id="two">Two</div>
+      <div id="three">Three</div>
+      <div id="four">Four</div>
+      <div id="five">Five</div>
+      <div id="six">This item spans the whole grid</div>
+      <div id="seven">This item spans first 3 columns in last row</div>
+    </div>
+  </body>
+</html>
