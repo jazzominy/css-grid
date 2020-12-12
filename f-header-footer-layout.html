@@ -12,6 +12,7 @@
             grid:
                 "h h h" 100px
                 "a b c"
+                "d e z"
                 "f f f" 100px / auto 1fr 20%
 
         }
@@ -34,16 +35,25 @@
         article {
             grid-area: b;
             min-width: 12em;
+            grid-row: 2 / 4;
         }
 
         nav {
             grid-area: a;
             min-width: 12em;
+            grid-row: 2 / 4;
         }
 
         aside {
             grid-area: c;
             min-width: 12em;
+            grid-row: 2 / 3;
+        }
+
+        aside + aside {
+            grid-area: c;
+            min-width: 12em;
+            grid-row: 3 / 4;
         }
 
     </style>
@@ -53,6 +63,7 @@
     <article>Article</article>
     <nav>Nav</nav>
     <aside>Aside</aside>
+    <aside>Aside 2</aside>
     <footer>Footer</footer>
 </body>
 </html>
