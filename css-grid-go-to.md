@@ -8,3 +8,7 @@ grid-template-columns: repeat(3, 1fr) - this as well is applied to the parent co
 
 grid-template-columns and grid-template-rows also take values (css units and fr) as to how wide or high the column and row needs to be respectively
 For eg grid-template-columns: auto 1fr auto; means column 1 and 3 will be sized automatically and column 2 will be allotted the available space
+
+repeat() function definition from [w3c.org](https://www.w3.org/TR/css-grid-2/#repeat-syntax)
+repeat( [ <integer [1,∞]> | auto-fill | auto-fit ] , <track-list> )
+`auto-fill` and `auto-fit` cannot be combined with intrinsic or flexible sizes. The size should be explicit, e.g 1rem or 20px or minmax(25ch, 1fr)

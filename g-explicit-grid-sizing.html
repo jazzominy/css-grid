@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Grid</title>
+    <style>
+        body {
+            margin: 0;
+            height: 100vh;
+        }
+        
+        .box-1 {
+            height: 50vh;
+            display: grid;
+            grid-template-rows: 1fr 1fr;
+            /**
+            * A value of max-content means intrinsic max width of the content, which means
+            * text content wont wrap at all even if there is overflow
+            * 
+            * A value of min-content means intrinsic max width of the content, which means
+            * text content will take all the oppotrunities to wrap, becoming as small as longest word
+            */
+            grid-template-columns: max-content min-content max-content minmax(min-content, 1fr);
+        }
+
+        .box-2 {
+            display: grid;
+            height: 50vh;
+            grid-template-rows: auto;
+            /**
+            * Here, the 1st column is 100px
+            * repeat() function accepts a count for which the 2nd argument columns are to be repeated
+            * 2nd argument specifies column sizes separated by space
+            */
+            grid-template-columns: 100px repeat(2, 1fr auto minmax(30%, 1fr));
+        }
+
+        .box-1 > div {
+            border: 2px solid rgb(233, 171, 88);
+            border-radius: 5px;
+            background-color: rgba(233, 171, 88, 0.5);
+            text-align: center;
+        }
+
+        .box-2 > div {
+            border: 2px solid rgb(88, 103, 233);
+            border-radius: 5px;
+            background-color: rgba(88, 103, 233, 0.5);
+            padding: 5px;
+            color: #3345e9;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="box-1">
+        <div><h1>item 1 item 1</h1></div>
+        <div><h1>item 2</h1></div>
+        <div><h1>item 3</h1></div>
+        <div><h1>item 4</h1></div>
+        <div><h1>item 5</h1></div>
+        <div><h1>item 6</h1></div>
+        <div><h1>item 7 item 7 item 7</h1></div>
+        <div><h1>item 8</h1></div>
+    </div>
+    <div class="box-2">
+        <div><h1>item 1</h1></div>
+        <div><h1>item 2</h1></div>
+        <div><h1>item 3</h1></div>
+        <div><h1>item 4</h1></div>
+        <div><h1>item 5</h1></div>
+        <div><h1>item 6</h1></div>
+        <div><h1>item 7 item 7 item 7</h1></div>
+        <div><h1>item 8</h1></div>
+        <div><h1>item 9</h1></div>
+        <div><h1>item 10</h1></div>
+        <div><h1>item 11</h1></div>
+    </div>
+</body>
+</html>
